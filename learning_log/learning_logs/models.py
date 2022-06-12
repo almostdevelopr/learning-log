@@ -1,5 +1,4 @@
 """Define the data we want to manage in our app."""
-from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
