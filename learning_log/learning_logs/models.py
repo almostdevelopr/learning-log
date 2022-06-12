@@ -1,5 +1,6 @@
 """Define the data we want to manage in our app."""
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -12,6 +13,9 @@ class Topic(models.Model):
     text = models.CharField(max_length=200)  # topic name
     date_added = models.DateTimeField(auto_now_add=True)
     # (auto_now_add=True) -> sets to current date and time whenever the user creates a new topic
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # we add owner field to Topic, which establishes a foreign key relationship to the User model
+    # If a user is deleted, all the topics associated with that user will be deleted as well.
 
     def __str__(self):
         """Return the string respresentation of the model."""
