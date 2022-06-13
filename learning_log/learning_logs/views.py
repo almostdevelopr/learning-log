@@ -100,5 +100,6 @@ def edit_entry(request, entry_id):
 
 
 def check_topic_owner(topic, request):
+    """Checks if the current user is the owner of the topic."""
     if topic.owner != request.user:
         raise Http404
